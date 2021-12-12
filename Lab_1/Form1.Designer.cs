@@ -44,6 +44,8 @@ namespace Lab_1
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -55,11 +57,11 @@ namespace Lab_1
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 222);
+            this.button1.Location = new System.Drawing.Point(12, 229);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(82, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Очистить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -83,7 +85,7 @@ namespace Lab_1
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 66);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 73);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(239, 150);
             this.pictureBox1.TabIndex = 4;
@@ -102,10 +104,17 @@ namespace Lab_1
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(642, 116);
+            this.comboBox1.Items.AddRange(new object[] {
+            "Red",
+            "Green",
+            "Blue"});
+            this.comboBox1.Location = new System.Drawing.Point(170, 43);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 6;
+            this.comboBox1.Text = "Red";
+            this.comboBox1.Visible = false;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // dateTimePicker1
             // 
@@ -117,10 +126,11 @@ namespace Lab_1
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(688, 387);
+            this.textBox1.Location = new System.Drawing.Point(359, 163);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.Size = new System.Drawing.Size(110, 22);
             this.textBox1.TabIndex = 8;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // trackBar1
             // 
@@ -133,21 +143,22 @@ namespace Lab_1
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(326, 298);
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(359, 11);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(110, 21);
+            this.radioButton1.Size = new System.Drawing.Size(93, 21);
             this.radioButton1.TabIndex = 10;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.Text = "Добавить";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(527, 252);
+            this.listBox1.Location = new System.Drawing.Point(359, 73);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 84);
+            this.listBox1.Size = new System.Drawing.Size(110, 84);
             this.listBox1.TabIndex = 11;
             // 
             // checkBox2
@@ -185,11 +196,34 @@ namespace Lab_1
             this.numericUpDown1.Visible = false;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(359, 38);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(84, 21);
+            this.radioButton2.TabIndex = 14;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Удалить";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(702, 386);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(86, 23);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Очистить";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.listBox1);
@@ -205,6 +239,7 @@ namespace Lab_1
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -229,6 +264,8 @@ namespace Lab_1
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Button button2;
     }
 }
 

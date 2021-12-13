@@ -81,6 +81,7 @@ namespace Lab_1
             this.progressBar1.Location = new System.Drawing.Point(12, 415);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(776, 23);
+            this.progressBar1.Step = 1;
             this.progressBar1.TabIndex = 3;
             // 
             // pictureBox1
@@ -138,6 +139,7 @@ namespace Lab_1
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(104, 56);
             this.trackBar1.TabIndex = 9;
+            this.trackBar1.Value = 1;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // radioButton1
